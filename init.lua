@@ -55,6 +55,11 @@ vim.opt.tabstop = 2
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- Disable virtual text for LSP lines
+vim.diagnostic.config({
+	virtual_text = false,
+})
+
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
@@ -111,8 +116,6 @@ require("lazy").setup({
 	{ import = "plugins.ui" },
 }, {
 	ui = {
-		-- If you are using a Nerd Font: set icons to an empty table which will use the
-		-- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
 		icons = vim.g.have_nerd_font and {} or {
 			cmd = "⌘",
 			config = "🛠",
